@@ -14,6 +14,8 @@
 		520109EA230DA25300218A48 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 520109E8230DA25300218A48 /* LaunchScreen.storyboard */; };
 		520109F5230DA25400218A48 /* JWTDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520109F4230DA25400218A48 /* JWTDemoTests.swift */; };
 		52010A00230DA25400218A48 /* JWTDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520109FF230DA25400218A48 /* JWTDemoUITests.swift */; };
+		52010A12230DA26C00218A48 /* Algorithm.m in Sources */ = {isa = PBXBuildFile; fileRef = 52010A0F230DA26C00218A48 /* Algorithm.m */; };
+		52010A13230DA26C00218A48 /* Jwt.m in Sources */ = {isa = PBXBuildFile; fileRef = 52010A11230DA26C00218A48 /* Jwt.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,11 @@
 		520109FB230DA25400218A48 /* JWTDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JWTDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		520109FF230DA25400218A48 /* JWTDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWTDemoUITests.swift; sourceTree = "<group>"; };
 		52010A01230DA25400218A48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52010A0D230DA26B00218A48 /* JWTDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JWTDemo-Bridging-Header.h"; sourceTree = "<group>"; };
+		52010A0E230DA26C00218A48 /* Algorithm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Algorithm.h; sourceTree = "<group>"; };
+		52010A0F230DA26C00218A48 /* Algorithm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Algorithm.m; sourceTree = "<group>"; };
+		52010A10230DA26C00218A48 /* Jwt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Jwt.h; sourceTree = "<group>"; };
+		52010A11230DA26C00218A48 /* Jwt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Jwt.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,12 +104,17 @@
 		520109DE230DA25200218A48 /* JWTDemo */ = {
 			isa = PBXGroup;
 			children = (
+				52010A0E230DA26C00218A48 /* Algorithm.h */,
+				52010A0F230DA26C00218A48 /* Algorithm.m */,
+				52010A10230DA26C00218A48 /* Jwt.h */,
+				52010A11230DA26C00218A48 /* Jwt.m */,
 				520109DF230DA25200218A48 /* AppDelegate.swift */,
 				520109E1230DA25200218A48 /* ViewController.swift */,
 				520109E3230DA25200218A48 /* Main.storyboard */,
 				520109E6230DA25300218A48 /* Assets.xcassets */,
 				520109E8230DA25300218A48 /* LaunchScreen.storyboard */,
 				520109EB230DA25300218A48 /* Info.plist */,
+				52010A0D230DA26B00218A48 /* JWTDemo-Bridging-Header.h */,
 			);
 			path = JWTDemo;
 			sourceTree = "<group>";
@@ -193,6 +205,7 @@
 				TargetAttributes = {
 					520109DB230DA25200218A48 = {
 						CreatedOnToolsVersion = 10.3;
+						LastSwiftMigration = 1030;
 					};
 					520109EF230DA25400218A48 = {
 						CreatedOnToolsVersion = 10.3;
@@ -257,6 +270,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				520109E2230DA25200218A48 /* ViewController.swift in Sources */,
+				52010A13230DA26C00218A48 /* Jwt.m in Sources */,
+				52010A12230DA26C00218A48 /* Algorithm.m in Sources */,
 				520109E0230DA25200218A48 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -432,6 +447,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 39E9KHKGHP;
 				INFOPLIST_FILE = JWTDemo/Info.plist;
@@ -441,6 +457,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.TagDemo.JWTDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "JWTDemo/JWTDemo-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -450,6 +468,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 39E9KHKGHP;
 				INFOPLIST_FILE = JWTDemo/Info.plist;
@@ -459,6 +478,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.TagDemo.JWTDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "JWTDemo/JWTDemo-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
