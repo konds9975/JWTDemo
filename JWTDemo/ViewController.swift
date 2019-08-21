@@ -28,9 +28,79 @@ class ViewController: UIViewController {
         
         print(dic)
         
+        let data = try! JSONSerialization.data(withJSONObject: dic, options: .prettyPrinted)
+        
+        let decoder = JSONDecoder()
+        do {
+            let customer = try decoder.decode(Welcome.self, from: data)
+            print(customer.questions[0].questionAnswer)
+        } catch {
+            print(error.localizedDescription)
+        }
+        
         
     }
 
 
 }
 
+
+
+// MARK: - Welcome
+struct Welcome: Codable {
+    let success: Int
+    let ids: IDS
+    let questions: [Question]
+    let categoryList: [CategoryList]
+    
+    enum CodingKeys: String, CodingKey {
+        case success, ids, questions
+        case categoryList = "category_list"
+    }
+}
+
+// MARK: - CategoryList
+struct CategoryList: Codable {
+    let categoryID, categoryName: String
+    
+    enum CodingKeys: String, CodingKey {
+        case categoryID = "category_id"
+        case categoryName = "category_name"
+    }
+}
+
+// MARK: - IDS
+struct IDS: Codable {
+    let totalGameLevels: Int
+    let iosColor1, iosColor2, androidColor1, androidColor2: String
+    let userCategoryID, timesPlayed, gameLevel, levelDifficultyID: String
+    let userID: String
+    
+    enum CodingKeys: String, CodingKey {
+        case totalGameLevels = "total_game_levels"
+        case iosColor1 = "ios_color_1"
+        case iosColor2 = "ios_color_2"
+        case androidColor1 = "android_color_1"
+        case androidColor2 = "android_color_2"
+        case userCategoryID = "user_category_id"
+        case timesPlayed = "times_played"
+        case gameLevel = "game_level"
+        case levelDifficultyID = "level_difficulty_id"
+        case userID = "user_id"
+    }
+}
+
+// MARK: - Question
+struct Question: Codable {
+    let questionID, questionObjectName, questionAnswer, questionLevel: String
+    let objectInformation: String
+    let image: String
+    
+    enum CodingKeys: String, CodingKey {
+        case questionID = "question_id"
+        case questionObjectName = "question_object_name"
+        case questionAnswer = "question_answer"
+        case questionLevel = "question_level"
+        case objectInformation, image
+    }
+}
